@@ -1,5 +1,5 @@
 function day (num: number) {
-    if (true) {
+    if (1 == num) {
         basic.showLeds(`
             . . # # .
             . . . # .
@@ -37,10 +37,14 @@ function day (num: number) {
     }
 }
 input.onGesture(Gesture.Shake, function () {
-    shake = 1
-    day(randint(1, 4))
-    basic.pause(5000)
-    shake = 0
+    basic.pause(500)
+    if (shake == 0) {
+        shake = 1
+        day(randint(1, 4))
+        basic.pause(5000)
+        shake = 0
+    }
+    basic.clearScreen()
 })
 let shake = 0
 shake = 0
